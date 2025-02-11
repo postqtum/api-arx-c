@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+     Copyright (C) 2023 IntelliCAD Technology Consortium. All Rights Reserved.
+
+     Use of the information contained herein, in part or in whole,
+     in/as source code and/or in/as object code, in any way by anyone
+     other than authorized employees of The IntelliCAD Technology Consortium,
+     or by anyone to whom The IntelliCAD Technology Consortium  has not
+     granted use is illegal.
+
+     Description: The file contains common properties for building IcArxUnitTests
+
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup Label="UserMacros">
+	</PropertyGroup>
+
+	<ItemDefinitionGroup Condition="'$(BuildForAcad)'!='true'">
+		<ClCompile>
+			<AdditionalIncludeDirectories>$(IcarxRootDir);$(IcadApiDir);$(IcadApiIcarxDir);$(IcadApiIcarxDir)\util\brep;$(OdaDir);$(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+		</ClCompile>
+		<Link>
+			<AdditionalDependencies>TD_DbRoot.lib;TD_DynBlocks.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<SubSystem>Windows</SubSystem>
+		</Link>
+	</ItemDefinitionGroup>
+
+	<ItemDefinitionGroup Condition="'$(BuildForAcad)'=='true'">
+		<ClCompile>
+			<AdditionalIncludeDirectories>$(OBJECT_ARX_ROOT)\inc;$(OBJECT_ARX_ROOT)\inc-x64;$(OBJECT_ARX_ROOT);$(OBJECT_ARX_ROOT)\utils\brep;$(ProjectDir)..\..\ThirdParty\cppunit\include;$(ProjectDir)..\..\ThirdParty\boost\include;$(ProjectDir)..\..\IntelliCAD\lib</AdditionalIncludeDirectories>
+			<LanguageStandard>stdcpp17</LanguageStandard>
+			<DisableSpecificWarnings>4552</DisableSpecificWarnings>
+			<BasicRuntimeChecks>Default</BasicRuntimeChecks>
+		</ClCompile>
+		<Link>
+			<AdditionalDependencies>
+				acgeoment.lib;adui24.lib;rxapi.lib;accore.lib;acdb24.lib;acge24.lib;acgex24.lib;ac1st24.lib;actc.lib;AcPal.lib;axdb.lib;AcDbPointCloudObj.lib;acbr24.lib;AcSceneOe.lib;aNav.lib;AcDrawBridge.lib;acui24.lib;<!--libcppunit-x64.lib;-->
+			</AdditionalDependencies>
+			<AdditionalLibraryDirectories>$(OBJECT_ARX_ROOT)\lib-x64;$(OBJECT_ARX_ROOT)\utils\brep\lib-x64;</AdditionalLibraryDirectories>
+			<ModuleDefinitionFile>$(OBJECT_ARX_ROOT)\inc\AcRxDefault.def</ModuleDefinitionFile>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup Condition="'$(BuildForAcad)'=='true'">
+		<Link>
+			<AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+		</Link>
+	</ItemDefinitionGroup>
+	<ItemDefinitionGroup>
+		<ClCompile>
+			<ExceptionHandling>Async</ExceptionHandling>
+		</ClCompile>
+	</ItemDefinitionGroup>
+
+	<Import Condition="'$(BuildForAcad)'=='true'" Project="$(OBJECT_ARX_ROOT)\inc\arx.props" />
+	<Import Condition="'$(BuildForAcad)'!='true'" Project="..\..\inc\arx.props" />
+
+</Project>

@@ -1,0 +1,351 @@
+/***************************************************************************
+***
+***     Copyright (C) 2022-2023 IntelliCAD Technology Consortium. All Rights Reserved.
+***
+***     Use of the information contained herein, in part or in whole,
+***     in/as source code and/or in/as object code, in any way by anyone
+***     other than authorized employees of The IntelliCAD Technology Consortium,
+***     or by anyone to whom The IntelliCAD Technology Consortium  has not
+***     granted use is illegal.
+***
+***     Description: AcTc type library definition
+***
+*****************************************************************************/
+
+typedef enum
+{
+    kContextNone = -1,
+	kContextMenuPaletteTool,
+	kContextMenuEditorImage,
+    kContextMenuPaletteBackground,
+    kContextMenuPaletteSetTab,
+    kContextMenuPaletteSetCaption,
+    kContextMenuPaletteSetOptionButton
+
+} ContextMenuFlag;
+
+typedef enum
+{
+	kContextMenuShow,
+	kContextMenuHide,
+	kExecutionCanceled,
+	kExecutionCancelRejected,
+    kContextMenuUpdatePalette
+
+} ReturnFlag;
+
+typedef enum
+{
+	kLButtonClicked,
+	kDroppedInDrawing
+} ExecutionContext;
+
+typedef enum
+{
+	kEditDefault,
+	kEditCustom,
+	kEditNone,
+	kEditMultiple = 0x4,
+
+} ToolEditMode;
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+[
+	object,
+    uuid(6492019A-A79C-4DAD-B282-902B2DC4C2B0),
+	dual,
+	helpstring("IAcadToolProperties Interface"),
+	pointer_default(unique)
+]
+interface IAcadToolProperties : IDispatch
+{
+		[propget, id(1), helpstring("property ID")] HRESULT ID([out, retval] GUID* pId);
+		[propget, id(2), helpstring("property Name")] HRESULT Name([out, retval] BSTR *pVal);
+		[propput, id(2), helpstring("property Name")] HRESULT Name([in] BSTR newVal);
+		[propget, id(3), helpstring("property Description")] HRESULT Description([out, retval] BSTR *pVal);
+		[propput, id(3), helpstring("property Description")] HRESULT Description([in] BSTR newVal);
+		[propget, id(4), helpstring("property ToolTipText")] HRESULT ToolTipText([out, retval] BSTR *pVal);
+		[propput, id(4), helpstring("property ToolTipText")] HRESULT ToolTipText([in] BSTR newVal);
+		[propget, id(5), helpstring("property HelpFile")] HRESULT HelpFile([out, retval] BSTR *pVal);
+		[propput, id(5), helpstring("property HelpFile")] HRESULT HelpFile([in] BSTR newVal);
+		[propget, id(6), helpstring("property HelpCommand")] HRESULT HelpCommand([out, retval] BSTR *pVal);
+		[propput, id(6), helpstring("property HelpCommand")] HRESULT HelpCommand([in] BSTR newVal);
+		[propget, id(7), helpstring("property HelpData")] HRESULT HelpData([out, retval] BSTR *pVal);
+		[propput, id(7), helpstring("property HelpData")] HRESULT HelpData([in] BSTR newVal);
+		[propget, id(8), helpstring("property IsReadOnly")] HRESULT IsReadOnly([out, retval] VARIANT_BOOL *pReadOnly);
+        [propget, id(9), helpstring("property ToolType")] HRESULT ToolType([out, retval] LONG* pToolType);
+        [propput, id(9), helpstring("property ToolType")] HRESULT ToolType([in] LONG lToolType);        
+        [propget, id(10), helpstring("property IsFlyoutEnabled")] HRESULT IsFlyoutEnabled([out, retval] VARIANT_BOOL* pEnabled);
+        [propput, id(10), helpstring("property IsFlyoutEnabled")] HRESULT IsFlyoutEnabled([in] VARIANT_BOOL bUseFlyout);                        
+        [propget, id(11), helpstring("property ShapePackageId")] HRESULT ShapePackageId([out, retval] GUID* pId);
+        [propput, id(11), helpstring("property ShapePackageId")] HRESULT ShapePackageId([in] GUID* pId);
+        [propget, id(12), helpstring("property CurrentShapeId")] HRESULT CurrentShapeId([out, retval] GUID* pId);       
+        [propput, id(12), helpstring("property CurrentShapeId")] HRESULT CurrentShapeId([in] GUID* pId);
+        [propget, id(13), helpstring("property ActiveShapeIds")] HRESULT ActiveShapeIds([out, retval] VARIANT* pShapes);               
+        [propput, id(13), helpstring("property ActiveShapeIds")] HRESULT ActiveShapeIds([in] VARIANT* pShapes);               
+        [id(14), helpstring("method GetImage")] HRESULT GetImage([in] long cx, [in] long cy, [out] IUnknown* *pVal, [out] BSTR *sResourceName, [out] BSTR *sSourceFile);
+        [id(15), helpstring("method SetImage")] HRESULT SetImage([in] long cx, [in] long cy, [in] IUnknown* newVal, [in] BSTR sResourceName, [in] BSTR sSourceFile);
+        [id(16), helpstring("method GetCustomData")] HRESULT GetCustomData([out, retval] IUnknown ** ppVal);
+        [id(17), helpstring("method GetCurrentShape")] HRESULT GetCurrentShape([out] IUnknown** ppTool);
+        [id(18), helpstring("method GetOverlayImage")] HRESULT GetOverlayImage([out] IUnknown** pVal, [out] BSTR* pResourceName, [out] BSTR* pSourceFile);
+        [id(19), helpstring("method SetOverlayImage")] HRESULT SetOverlayImage([in] IUnknown* newVal, [in] BSTR sResourceName, [in] BSTR sSourceFile);            
+        [id(20), helpstring("method GetAcTcTool")] HRESULT GetAcTcTool([out, retval] DWORD_PTR* ppAcTcTool);
+};
+
+
+[
+	object,    
+	uuid(794EE347-6126-4CEF-9AD2-ED62662896C7),
+	dual,
+	helpstring("IAcadToolProperties2 Interface"),
+	pointer_default(unique)
+]
+interface IAcadToolProperties2 : IDispatch
+{
+    [propget, id(31), helpstring("property ItemOption")] HRESULT ItemOption([out, retval] LONG* pItemOption);
+    [propput, id(31), helpstring("property ItemOption")] HRESULT ItemOption([in] LONG lItemOption);
+    [propget, id(32), helpstring("property ImageOption")] HRESULT ImageOption([out, retval] LONG* pImageOption);
+    [propput, id(32), helpstring("property ImageOption")] HRESULT ImageOption([in] LONG lImageOption);
+};
+
+
+[
+	object,    
+	uuid(32126C1D-2AE8-4211-A384-9930FD1F2E3E),
+	dual,
+	helpstring("IAcadToolProperties3 Interface"),
+	pointer_default(unique)
+]
+interface IAcadToolProperties3 : IDispatch
+{
+    [id(41), helpstring("method GetDarkImage")] HRESULT GetDarkImage([in] long cx, [in] long cy, [out] IUnknown* *pVal, [out] BSTR *sResourceName, [out] BSTR *sSourceFile);
+    [id(42), helpstring("method SetDarkImage")] HRESULT SetDarkImage([in] long cx, [in] long cy, [in] IUnknown* newVal, [in] BSTR sResourceName, [in] BSTR sSourceFile);
+    [id(43), helpstring("method GetDarkOverlayImage")] HRESULT GetDarkOverlayImage([out] IUnknown** pVal, [out] BSTR* pResourceName, [out] BSTR* pSourceFile);
+    [id(44), helpstring("method SetDarkOverlayImage")] HRESULT SetDarkOverlayImage([in] IUnknown* newVal, [in] BSTR sResourceName, [in] BSTR sSourceFile);            
+};
+
+
+[
+	object,
+	uuid(1DCA23E8-B826-43EB-8C27-C5E7A2EAD162),
+	helpstring("IAcadStockTool"),
+	pointer_default(unique),
+	local,
+	oleautomation
+]
+interface IAcadStockTool : IUnknown
+{
+	[id(1), helpstring("method CreateTool")] HRESULT CreateTool([out, retval] IUnknown** ppTool);
+};
+
+
+[
+	object,
+    uuid(2D37E9F1-9AEB-477A-BB8C-05A4EADB5DE3),
+	helpstring("IAcadToolContextMenu"),
+	pointer_default(unique),
+	local,
+	oleautomation
+]
+interface IAcadToolContextMenu : IUnknown
+{
+	[id(1), helpstring("method Customize")] HRESULT Customize([in] int nContextFlag, [in] DWORD_PTR/*HMENU*/ hMenu, [in] UINT idCmdFirst,[in]  UINT idCmdLast, [in] GUID* pPaletteId, [out, retval] DWORD* pFlag);
+	[id(2), helpstring("method GetMenuHelp")] HRESULT GetMenuHelp([in] UINT idCmd, [out, retval]BSTR* pbstrHelpText);
+	[id(3), helpstring("method InvokeMenuCommand")] HRESULT InvokeMenuCommand([in] UINT idCmd, [in] GUID* pPaletteId, [in] DWORD_PTR /*HWND*/ hWnd, [out, retval] DWORD* pFlag);
+};
+
+
+[ 
+    object, 
+    uuid(573AF1E6-046D-4FB7-83BC-BD8DCB34B9D2),
+	helpstring("IAcadTool"),
+	pointer_default(unique),
+	local,
+	oleautomation
+]
+interface IAcadTool : IUnknown
+{
+	[propget, id(1), helpstring("property EditMode")] HRESULT EditMode([out, retval] long* pVal);
+	[id(2), helpstring("method GetStockTool")] HRESULT GetStockTool([out, retval] IUnknown** ppToolClass);
+	[id(3), helpstring("method SetToolProperties")] HRESULT SetToolProperties([in] IUnknown* pProp);
+	[id(4), helpstring("method Load")] HRESULT Load([in] IUnknown* pXmlElement);
+	[id(5), helpstring("method Save")] HRESULT Save([in] IUnknown* pXmlElement);
+	[id(6), helpstring("method Execute")] HRESULT Execute([in] LONG_PTR lFlag, [in] DWORD_PTR /*HWND*/ hWnd, [in] DWORD point, [in] DWORD dwKeyState);
+	[id(7), helpstring("method GetData")] HRESULT GetData([in] VARIANT *pObjUnkArray, [in] VARIANT *pDynUnkArray);
+	[id(8), helpstring("method BeginEdit")] HRESULT BeginEdit();
+	[id(9), helpstring("method Edit")] HRESULT Edit([in] IUnknown* pProp, [in] LONG_PTR /*HWND*/ hWndParent, [out] VARIANT_BOOL* pRet);
+	[id(10), helpstring("method EndEdit")] HRESULT EndEdit([in] VARIANT_BOOL bEditCancelled);
+	[id(11), helpstring("method New")] HRESULT New();
+	[id(12), helpstring("method GetDropTarget")] HRESULT GetDropTarget([out, retval] IUnknown** ppDropTarget);
+	[id(13), helpstring("method GetContextMenu")] HRESULT GetContextMenu([in] INT_PTR nContextFlag, [in] DWORD_PTR/*HMENU*/ hMenu, [in] UINT idCmdFirst,[in]  UINT idCmdLast, [out, retval] DWORD_PTR* pFlag);
+	[id(14), helpstring("method GetCommandString")] HRESULT GetCommandString([in] UINT idCmd, [out, retval]BSTR* pbstrHelpText);
+	[id(15), helpstring("method InvokeCommand")] HRESULT InvokeCommand([in] UINT idCmd, [in] DWORD_PTR /*HWND*/ hWnd);
+	[id(16), helpstring("method GetDragDropContextInfo")] HRESULT GetDragDropContextInfo([in] IUnknown*	pIUnknown, [out]BSTR* pbstrText, [out] DWORD* pFlag);
+    [id(17), helpstring("method Dropped")] HRESULT Dropped([in] BSTR bstrUrl);
+    [id(18), helpstring("method Refreshed")] HRESULT Refreshed([in] BSTR bstrUrl);
+    [id(19), helpstring("method SetEditorWindow")] HRESULT SetEditorWindow([in] LONG_PTR /*HWND*/ hWndEditor, [in] IUnknown* 	pPropInspector);
+    [id(20), helpstring("method ValidateEditChanges")] HRESULT ValidateEditChanges();    
+    [id(21), helpstring("method GetToolProperties")] HRESULT GetToolProperties([out, retval] IUnknown** pToolProp);
+	[id(22), helpstring("method BeginMultipleEdit")] HRESULT BeginMultipleEdit([in] VARIANT tools, [in] VARIANT stockToolIds);
+	[id(23), helpstring("method EndMultipleEdit")] HRESULT EndMultipleEdit([in] VARIANT tools, [in] VARIANT stockToolIds, [in] VARIANT_BOOL bEditCancelled);
+	[id(24), helpstring("method MultipleEdit")] HRESULT MultipleEdit([in] VARIANT tools, [in] VARIANT stockToolIds, [in] LONG_PTR /*HWND*/ hWndParent, [out] VARIANT_BOOL* pRet);
+};
+
+
+[
+	object,
+	uuid(B71EB190-9C8E-4F29-8AA2-81022F243B73), 
+	helpstring("IAcadTool2"),
+	pointer_default(unique),
+	local,
+	oleautomation
+]
+interface IAcadTool2 : IUnknown
+{
+	[id(1), helpstring("method UpdateImage")] HRESULT UpdateImage();
+};
+
+
+[ object, uuid(7298F074-DD9C-451B-B512-343CA055E9F5),
+	helpstring("IAcadToolFlyoutShape"),
+	pointer_default(unique),
+	local,
+	oleautomation
+]
+interface IAcadToolFlyoutShape : IUnknown
+{
+	[id(1), helpstring("method SetFlyoutTools")] HRESULT SetFlyoutTools([in] VARIANT* pFlyoutToolIds);
+};
+
+
+[
+	object,
+	uuid(DD4FF606-33B7-4939-9FA1-23EE74F54000),
+	helpstring("IAcadToolSort"),
+	pointer_default(unique),
+	local,
+	oleautomation
+]
+interface IAcadToolSort : IUnknown
+{
+	[id(1), helpstring("method Compare")] HRESULT Compare([in] IUnknown* pTool,
+        [in] long lSortOption, [out, retval] long* pResult);
+};
+
+
+[
+	object,
+	uuid(EA7AF756-7AE9-48EB-93E8-5329B371A7BB),
+	helpstring("IAcadToolDropTarget"),
+	pointer_default(unique),
+	local,
+	oleautomation
+]
+interface IAcadToolDropTarget : IUnknown
+{
+	[id(1), helpstring("method DragEnter")] HRESULT DragEnter([in] IDataObject* pDataObj,
+        [in] DWORD grfKeyState, [in] POINTL pt, [in, out] DWORD* pdwEffect);
+    [id(2), helpstring("method DragOver")] HRESULT DragOver([in] DWORD grfKeyState, 
+        [in] POINTL pt, [in, out] DWORD* pdwEffect);
+    [id(3), helpstring("method DragLeave")] HRESULT DragLeave(void);
+    [id(4), helpstring("method Drop")] HRESULT Drop([in] IDataObject* pDataObj,
+        [in] DWORD grfKeyState, [in] POINTL pt, [in, out] DWORD* pdwEffect,
+        [in] GUID* pCurrentStockToolId, [in] GUID* pParentId, [out, retval] VARIANT* pNewToolIds);
+    [id(5), helpstring("method GetDragDropContextMenuItem")] HRESULT GetDragDropContextMenuItem([in] IUnknown* pIUnknown, 
+        [out] BSTR* pbstrText, [out] DWORD* pFlag);
+};
+
+
+[
+	object,
+	uuid(220A429F-870C-48F3-9F08-05E8FE39D42E),
+	helpstring("IAcadToolDragSource"),
+	pointer_default(unique),
+	local,
+	oleautomation
+]
+interface IAcadToolDragSource : IUnknown
+{
+	[id(1), helpstring("method BeginDrag")] HRESULT BeginDrag([in] VARIANT* pToolIds,
+        [in] VARIANT* pAllStockToolIds, [in] GUID* pCurrentStockToolId, [in] IDataObject* pDataObject, 
+        [in] DWORD dwKeyState);
+	[id(2), helpstring("method DragInProgress")] HRESULT DragInProgress([in] DWORD dwDropEffect);
+	[id(3), helpstring("method EndDrag")] HRESULT EndDrag([in] DWORD dwDropEffect);
+    [id(4), helpstring("method DragEnterDrawing")] HRESULT DragEnterDrawing([in] IDataObject* pDataObject,
+        [in] DWORD grfKeyState, [in] POINTL pt, [out, retval] DWORD* pDropEffect);
+	[id(5), helpstring("method DragOverDrawing")] HRESULT DragOverDrawing([in] DWORD grfKeyState, 
+        [in] POINTL pt, [out, retval] DWORD* pDropEffect);
+    [id(6), helpstring("method DragLeaveDrawing")] HRESULT DragLeaveDrawing(void);
+    [id(7), helpstring("method DropInDrawing")] HRESULT DropInDrawing([in] IDataObject* pDataObject,
+        [in] DWORD grfKeyState, [in] POINTL pt, [out, retval] DWORD* pDropEffect);
+};
+
+
+[
+	object,
+	uuid(58FED85A-043D-40A3-BE40-774AA79127B2),
+	helpstring("IAcadToolCopyPaste"),
+	pointer_default(unique),
+	local,
+	oleautomation
+]
+interface IAcadToolCopyPaste : IUnknown
+{
+	[id(1), helpstring("method Copy")] HRESULT Copy([in] VARIANT* pToolIds,
+        [in] VARIANT* pAllStockToolIds, [in] GUID* pCurrentStockToolId, [in] IDataObject* pDataObject);
+	[id(2), helpstring("method Paste")] HRESULT Paste([in] GUID* pCurrentStockToolId,
+        [in] GUID* pParentId, [in] IDataObject* pDataObject, [out, retval] VARIANT* pNewToolIds);
+	[id(3), helpstring("method CanPaste")] HRESULT CanPaste([in] IDataObject* pDataObject, 
+        [out, retval] VARIANT_BOOL* pCanPaste);
+};
+
+
+[
+	object,
+	uuid(8FB6FCFC-1375-4539-BB4C-8C8A7D6D0C9D),
+	helpstring("IAcadToolImage Interface"),
+	pointer_default(unique),
+	local
+]
+interface IAcadToolImage : IUnknown
+{
+	[id(1), helpstring("method Load")] HRESULT Load([in] BSTR bsFileName);
+	[id(2), helpstring("method Save")] HRESULT Save([in] BSTR bsFileName);
+	[id(3), helpstring("method Render")] HRESULT Render([in] HDC hdc, [in] long x, [in] long y, [in] long cx, [in] long cy, [in] long nStyle, [in] VARIANT_BOOL bTransparentBitmap);
+	[id(4), helpstring("method GetSize")] HRESULT GetSize([out] long* pWidth, [out] long* pHeight);
+	[id(5), helpstring("method GetType")] HRESULT GetType([out] short* pType);
+	[id(6), helpstring("method IsImageLoaded")] HRESULT IsImageLoaded([out] BOOL *pVal);
+};
+
+
+[
+    uuid(CD456279-ED83-4428-8C91-A3D490324F99),
+	version(1.0),
+	helpstring("AcTc 1.0 Type Library")
+]
+library AcTcLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(91D56FC2-F9E0-4DB3-AF12-63F6DBED0F36),
+		helpstring("AcadToolProperties Class"),
+		noncreatable
+	]
+	coclass AcadToolProperties
+	{
+		[default] interface IAcadToolProperties;
+	};
+	[
+		uuid(73035869-2472-42B8-BEA6-71DC52C708F2),
+		helpstring("AcadToolImage Class")
+	]
+	coclass AcadToolImage
+	{
+		[default] interface IAcadToolImage;
+	};
+};

@@ -1,0 +1,203 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RCDATA
+//
+
+IDB_PRINT_WARNING       RCDATA                  "PLOT_TABLES.bmp"
+
+IDB_Transparent_Bitmap  RCDATA                  "TransparentBitmap.bmp"
+
+IDB_TEST_BITMAP_RCDATA  RCDATA                  "testBitmap.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDB_TEST_ICON           ICON                    "icon2.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_TEST_CBITMAP_BITMAP BITMAP                  "testCBitmap.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_CAcUiMRUComboBox_Test DIALOGEX 0, 0, 235, 500
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,127,484,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,179,484,50,14
+    LTEXT           "CAcUiMRUComboBox",IDC_STATIC_NAME,7,16,93,8
+    LTEXT           "CAcUiLineTypeComboBox",IDC_STATIC_NAME2,9,38,93,8
+    COMBOBOX        IDD_CAcUiLineTypeComboBox_Test,7,47,91,136,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "CAcUiColorComboBox",IDC_STATIC_NAME3,9,61,93,8
+    COMBOBOX        IDD_CAcUiColorComboBox_Test,7,70,91,136,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "CAcUiTrueColorComboBox",IDC_STATIC_NAME4,9,84,93,8
+    COMBOBOX        IDD_CAcUiTrueColorComboBox_Test,7,93,91,136,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "CAcUiLineWeightComboBox",IDC_STATIC_NAME5,9,107,93,8
+    COMBOBOX        IDD_CAcUiLineWeightComboBox_Test,7,118,91,136,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "CAcUiArrowHeadComboBox",IDC_STATIC_NAME6,9,132,93,8
+    COMBOBOX        IDD_CAcUiArrowHeadComboBox_Test,7,143,91,136,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "CAcUiPlotStyleTablesComboBox",IDC_STATIC_NAME7,9,157,105,8
+    COMBOBOX        IDD_CCAcUiPlotStyleTablesComboBox_Test,7,168,91,136,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "CAcUiPlotStyleNamesComboBox",IDC_STATIC_NAME8,9,182,105,8
+    COMBOBOX        IDD_CAcUiPlotStyleNamesComboBox_Test,7,193,91,136,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "CAcUiPlotStyleNamesComboBox",IDC_STATIC_NAME9,9,207,105,8
+    COMBOBOX        IDD_CAcUiPredefBlockComboBox_Test,7,218,91,136,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Color Mode",IDC_Color_Mode,101,192,50,14
+    PUSHBUTTON      "Named Mode",IDC_Named_Mode,154,192,50,14
+    LTEXT           "CAdUiComboBox",IDC_STATIC_NAME10,9,234,105,8
+    COMBOBOX        IDD_CAdUiComboBox_Test,7,243,30,136,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "CAdUiEdit",IDC_STATIC_NAME11,9,259,105,8
+    EDITTEXT        IDC_CAdUiEdit,7,270,40,14,ES_AUTOHSCROLL
+    CONTROL         "testCAdUiOwnerDrawButton",IDC_CAdUiOwnerDrawButton,
+                    "Button",BS_OWNERDRAW | WS_TABSTOP,7,290,50,14
+    CONTROL         "IDB_TEST_BITMAP_RCDATA|testCAdUiBitmapButton",IDC_CAdUiBitmapButton,
+                    "Button",BS_OWNERDRAW | WS_TABSTOP,7,315,50,14
+    GROUPBOX        "",IDC_STATIC,7,345,64,60
+    CONTROL         "LoadIcon",IDC_Load_Icon,"Button",BS_AUTORADIOBUTTON | BS_LEFT | WS_GROUP,7,353,40,10
+    CONTROL         "LoadRCDATA",IDC_LoadRCDATA,"Button",BS_AUTORADIOBUTTON | BS_LEFT,7,368,59,10
+    CONTROL         "LoadBITMAP",IDC_LoadBITMAP,"Button",BS_AUTORADIOBUTTON | BS_LEFT,7,383,59,10
+    COMBOBOX        IDD_CAcUiMRUComboBox_Test,7,25,91,136,CBS_DROPDOWNLIST | CBS_OWNERDRAWFIXED | CBS_SORT | CBS_HASSTRINGS | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "CAdUiTrackButton",IDC_CAdUiTrackButton,"Button",BS_OWNERDRAW | WS_TABSTOP,7,420,50,14
+    CONTROL         "CAdUiBitmapTextButton",IDC_CAdUiBitmapTextButton,"Button",BS_OWNERDRAW | WS_TABSTOP,7,435,50,14
+    GROUPBOX        "",IDC_STATIC_1,150,430,64,60
+    CONTROL         "LocationLeft",IDC_BitmapLocation_kLeft,"Button",BS_AUTORADIOBUTTON | BS_LEFT | WS_GROUP,150,435,40,10
+    CONTROL         "LocationTop",IDC_BitmapLocation_kTop,"Button",BS_AUTORADIOBUTTON | BS_LEFT,150,445,59,10
+    CONTROL         "LocationRight",IDC_BitmapLocation_kRight,"Button",BS_AUTORADIOBUTTON | BS_LEFT,150,455,59,10
+    CONTROL         "LocationBottom",IDC_BitmapLocation_kBottom,"Button",BS_AUTORADIOBUTTON | BS_LEFT,150,465,59,10
+    CONTROL         "Second",IDC_CHKOTHER2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,101,144,39,10
+    PUSHBUTTON      "Other Name",IDC_BTNOTHER,154,144,50,14
+END
+
+IDD_DIALOG_CAdUiImageDialogTest DIALOGEX 0, 0, 297, 176
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,240,155,50,14
+    LTEXT           "draws by x y coordinates",IDC_STATIC,202,7,82,8
+    LTEXT           "image scaling",IDC_STATIC,202,33,43,8
+    LTEXT           "image cropping",IDC_STATIC,202,62,49,8
+    LTEXT           "image cropping and scaling",IDC_STATIC,202,98,86,8
+    LTEXT           "loads and draws icon",IDC_STATIC,202,130,86,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_CAcUiMRUComboBox_Test, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 451
+    END
+
+    IDD_DIALOG_CAdUiImageDialogTest, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 290
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_DIALOG_CAcUiMRUComboBox_Test AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DIALOG_CAdUiImageDialogTest AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

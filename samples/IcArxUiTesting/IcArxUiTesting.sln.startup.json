@@ -1,0 +1,70 @@
+/***************************************************************************
+***
+***     Copyright (C) 2023 IntelliCAD Technology Consortium. All Rights Reserved.
+***
+***     Use of the information contained herein, in part or in whole,
+***     in/as source code and/or in/as object code, in any way by anyone
+***     other than authorized employees of The IntelliCAD Technology Consortium,
+***     or by anyone to whom The IntelliCAD Technology Consortium  has not
+***     granted use is illegal.
+***
+***     Description: This is a configuration file for the SwitchStartupProject Visual Studio Extension
+***     See https://heptapod.host/thirteen/switchstartupproject/blob/branch/current/Configuration.md
+***
+*****************************************************************************/
+/*
+*/
+{
+	/*  Configuration File Version  */
+	"Version": 3,
+
+	/*  Create an item in the dropdown list for each project in the solution?  */
+	"ListAllProjects": true,
+
+	"MultiProjectConfigurations": {
+		"Icad Debug testing": {
+			"Projects": {
+				"IcArxUiTesting": {
+					"CommandLineArguments": "/B \"$(ProjectDir)IcArxUiTesting.scr\"",
+					"StartExternalProgram": "$(ProjectDir)..\\..\\..\\..\\..\\Build\\VC.v142\\Pro.Debug64\\Icad.exe",
+					"WorkingDirectory": "$(OutDir)"
+				}
+			},
+			"SolutionConfiguration": "Debug",
+			"SolutionPlatform": "x64"
+		},
+		"Icad Pro Release testing": {
+			"Projects": {
+				"IcArxUiTesting": {
+					"CommandLineArguments": "/B \"$(ProjectDir)IcArxUiTesting.scr\"",
+					"StartExternalProgram": "$(ProjectDir)..\\..\\..\\..\\..\\Build\\VC.v142\\IntelliCAD.Pro.64bit\\Icad.exe",
+					"WorkingDirectory": "$(OutDir)"
+				}
+			},
+			"SolutionConfiguration": "Release",
+			"SolutionPlatform": "x64"
+		},
+		"Acad Debug testing": {
+			"Projects": {
+				"IcArxUiTesting": {
+					"CommandLineArguments": "/B \"$(ProjectDir)IcArxUiTesting.scr\"",
+					"StartExternalProgram": "C:\\Program Files\\Autodesk\\AutoCAD 2022\\Acad.exe",
+					"WorkingDirectory": "$(OutDir)"
+				}
+			},
+			"SolutionConfiguration": "Acad Debug",
+			"SolutionPlatform": "x64"
+		},
+		"Acad Release testing": {
+			"Projects": {
+				"IcArxUiTesting": {
+					"CommandLineArguments": "/B \"$(ProjectDir)IcArxUiTesting.scr\"",
+					"StartExternalProgram": "C:\\Program Files\\Autodesk\\AutoCAD 2022\\Acad.exe",
+					"WorkingDirectory": "$(OutDir)"
+				}
+			},
+			"SolutionConfiguration": "Acad Release",
+			"SolutionPlatform": "x64"
+		}
+	}
+}

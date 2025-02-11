@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+     Copyright (C) 2023 IntelliCAD Technology Consortium. All Rights Reserved.
+
+     Use of the information contained herein, in part or in whole,
+     in/as source code and/or in/as object code, in any way by anyone
+     other than authorized employees of The IntelliCAD Technology Consortium,
+     or by anyone to whom The IntelliCAD Technology Consortium  has not
+     granted use is illegal.
+
+     Description: The file contains definition of TargetExt property
+	 The file must be included before $(VCTargetsPath)\Microsoft.Cpp.targets
+
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Acad Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="$(OBJECT_ARX_ROOT)\inc\rxsdk_Debugcfg.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Acad Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="$(OBJECT_ARX_ROOT)\inc\rxsdk_releasecfg.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\inc\rxsdk_Debugcfg.props" />
+	</ImportGroup>
+	<ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+		<Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+		<Import Project="..\..\inc\rxsdk_Releasecfg.props" />
+	</ImportGroup>
+
+</Project>

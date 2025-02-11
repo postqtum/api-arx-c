@@ -1,0 +1,96 @@
+/***************************************************************************
+***
+***     Copyright (C) 2022-2023 IntelliCAD Technology Consortium. All Rights Reserved.
+***
+***     Use of the information contained herein, in part or in whole,
+***     in/as source code and/or in/as object code, in any way by anyone
+***     other than authorized employees of The IntelliCAD Technology Consortium,
+***     or by anyone to whom The IntelliCAD Technology Consortium  has not
+***     granted use is illegal.
+***
+***     Description: Declaration of AcDbEnumTime
+***
+*****************************************************************************/
+#pragma once
+
+#include "AcDb.h"
+
+enum AcDb::TimeZone
+{
+	kInternationalDateLine = -12000,
+	kMidwayIsland = -11000,
+	kHawaii = -10000,
+	kAlaska = -9000,
+	kPacific = -8000,
+	kMountain = -7000,
+	kArizona = -7001,
+	kMazatlan = -7002,
+	kCentral = -6000,
+	kCentralAmerica = -6001,
+	kMexicoCity = -6002,
+	kSaskatchewan = -6003,
+	kEastern = -5000,
+	kIndiana = -5001,
+	kBogota = -5002,
+	kAtlanticCanada = -4000,
+	kCaracas = -4001,
+	kSantiago = -4002,
+	kNewfoundland = -3300,
+	kBrasilia = -3000,
+	kBuenosAires = -3001,
+	kGreenland = -3002,
+	kMidAtlantic = -2000,
+	kAzores = -1000,
+	kCapeVerde = -1001,
+	kUTC = 0,
+	kGMT = 1,
+	kMonrovia = 2,
+	kBerlin = 1000,
+	kParis = 1001,
+	kPrague = 1002,
+	kSarajevo = 1003,
+	kWestCentralAfrica = 1004,
+	kAthens = 2000,
+	kEasternEurope = 2001,
+	kCairo = 2002,
+	kHarare = 2003,
+	kHelsinki = 2004,
+	kJerusalem = 2005,
+	kMoscow = 3000,
+	kRiyadh = 3001,
+	kBaghdad = 3002,
+	kEastAfrica = 3003,
+	kTehran = 3300,
+	kAbuDhabi = 4000,
+	kCaucasus = 4001,
+	kKabul = 4300,
+	kEkaterinburg = 5000,
+	kIslamabad = 5001,
+	kKolkata = 5300,
+	kKathmandu = 5450,
+	kAlmaty = 6000,
+	kDhaka = 6001,
+	kSriLanka = 6002,
+	kRangoon = 6300,
+	kBangkok = 7000,
+	kKrasnoyarsk = 7001,
+	kBeijing = 8000,
+	kSingapore = 8001,
+	kTaipei = 8002,
+	kIrkutsk = 8003,
+	kPerth = 8004,
+	kTokyo = 9000,
+	kSeoul = 9001,
+	kYakutsk = 9002,
+	kAdelaide = 9300,
+	kDarwin = 9301,
+	kSydney = 10000,
+	kGuam = 10001,
+	kBrisbane = 10002,
+	kHobart = 10003,
+	kVladivostock = 10004,
+	kMagadan = 11000,
+	kWellington = 12000,
+	kFiji = 12001,
+	kTonga = 13000,
+};

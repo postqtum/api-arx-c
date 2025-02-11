@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import Project="..\icrx\IntelliCAD.Irx.Samples.props" />
+
+  <PropertyGroup Label="UserMacros">
+    <IcarxRootDir>$(MSBuildThisFileDirectory)</IcarxRootDir>
+  </PropertyGroup>
+  
+  <ItemDefinitionGroup>
+    <Midl>
+      <AdditionalIncludeDirectories>$(IcarxRootDir)\inc;$(IcarxRootDir)\inc-x64;$(IcadApiDir);$(IcadApiIcrxDir)\inc;$(IcadApiSdsDir);$(OdaDir);$(OdaDir)\Kernel\Include;$(OdaDir)\KernelBase\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TargetEnvironment>NotSet</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <GenerateTypeLibrary>true</GenerateTypeLibrary>
+      <TypeLibraryName>$(OutDir)$(TargetName).tlb</TypeLibraryName>
+      <HeaderFileName>$(IntDir)%(Filename)_i.h</HeaderFileName>
+      <DllDataFileName>$(IntDir)%(Filename)_d.c</DllDataFileName>
+      <InterfaceIdentifierFileName>$(IntDir)%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>$(IntDir)%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions></AdditionalOptions>
+      <AdditionalIncludeDirectories>$(IcarxRootDir)\inc;$(IcarxRootDir)\inc-x64;$(IntDir);;$(OdaDir);$(OdaDir)\Kernel\Include;$(OdaDir)\KernelBase\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ResourceCompile>
+        <AdditionalIncludeDirectories>$(OutDir);$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(IcarxRootDir)\lib-x64;$(OdaLibDir);$(IcadApiIcrxLibDirRelease);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies Condition="$(Configuration.Contains('Debug'))">IcArxAx.lib;IcArx.lib;IcArxGe.lib;IcArxUi.lib;IcArxBridge.lib;IcRxd.lib;TD_Root.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies Condition="$(Configuration.Contains('Release'))">IcArxAx.lib;IcArx.lib;IcArxGe.lib;IcArxUi.lib;IcArxBridge.lib;IcRx.lib;TD_Root.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+</Project>
